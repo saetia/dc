@@ -134,6 +134,26 @@
         UITextField *yourTextfield = [[UITextField alloc] initWithFrame:CGRectMake(20, 60 * i + 35 + PADDING, 230, 30)];
         yourTextfield.borderStyle = UITextBorderStyleRoundedRect;
         yourTextfield.keyboardType = UIKeyboardTypeDecimalPad;
+        yourTextfield.keyboardAppearance = UIKeyboardAppearanceAlert;
+        
+        
+
+        UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(10, 0, 310, 45)];
+        
+        UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+        
+        UIBarButtonItem *toolbarDone = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:yourTextfield action:@selector(resignFirstResponder)];
+        
+        toolbar.
+        
+        toolbar.items = [NSArray arrayWithObjects:spacer, toolbarDone, nil];
+        
+        [yourTextfield setInputAccessoryView:toolbar];
+        
+        
+        
+        
+        
         [self.view addSubview:yourTextfield];
         
 
