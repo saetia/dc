@@ -44,6 +44,8 @@
 		5D353D3B17A8E7AB00EC6AEF /* PSMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D353D3817A8E3B800EC6AEF /* PSMenuItem.m */; };
 		5D83192C17A877EE0069F64E /* UnitsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D83192B17A877EE0069F64E /* UnitsButton.m */; };
 		5DD8A84717A1D5D400669C34 /* CalculationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD8A84617A1D5D400669C34 /* CalculationViewController.m */; };
+		5DE6C2F017B20B4A00CAC389 /* BSKeyboardControls.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE6C2EC17B20B4A00CAC389 /* BSKeyboardControls.m */; };
+		5DE6C2F117B20B4A00CAC389 /* BSKeyboardControls.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DE6C2ED17B20B4A00CAC389 /* BSKeyboardControls.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +112,10 @@
 		5D83192B17A877EE0069F64E /* UnitsButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitsButton.m; sourceTree = "<group>"; };
 		5DD8A84517A1D5D400669C34 /* CalculationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculationViewController.h; sourceTree = "<group>"; };
 		5DD8A84617A1D5D400669C34 /* CalculationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculationViewController.m; sourceTree = "<group>"; };
+		5DE6C2EB17B20B4A00CAC389 /* BSKeyboardControls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSKeyboardControls.h; sourceTree = "<group>"; };
+		5DE6C2EC17B20B4A00CAC389 /* BSKeyboardControls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSKeyboardControls.m; sourceTree = "<group>"; };
+		5DE6C2EE17B20B4A00CAC389 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/BSKeyboardControls.strings; sourceTree = "<group>"; };
+		5DE6C2EF17B20B4A00CAC389 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BSKeyboardControls.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +181,7 @@
 				5D06C62517A07EF700673E02 /* MMDrawerController */,
 				5D06C5F317A0787600673E02 /* AppDelegate.h */,
 				5D06C5F417A0787600673E02 /* AppDelegate.m */,
+				5DE6C2EA17B20B4A00CAC389 /* BSKeyboardControls */,
 				5D353D3817A8E3B800EC6AEF /* PSMenuItem.m */,
 				5D353D3917A8E3B800EC6AEF /* PSMenuItem.h */,
 				5D06C63717A08CBF00673E02 /* CenterViewController.h */,
@@ -260,6 +267,16 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		5DE6C2EA17B20B4A00CAC389 /* BSKeyboardControls */ = {
+			isa = PBXGroup;
+			children = (
+				5DE6C2EB17B20B4A00CAC389 /* BSKeyboardControls.h */,
+				5DE6C2EC17B20B4A00CAC389 /* BSKeyboardControls.m */,
+				5DE6C2ED17B20B4A00CAC389 /* BSKeyboardControls.strings */,
+			);
+			path = BSKeyboardControls;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -314,6 +331,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				da,
 			);
 			mainGroup = 5D06C5D817A0787600673E02;
 			productRefGroup = 5D06C5E217A0787600673E02 /* Products */;
@@ -338,6 +356,7 @@
 				5D06C5FE17A0787600673E02 /* MainStoryboard_iPhone.storyboard in Resources */,
 				5D06C60117A0787600673E02 /* MainStoryboard_iPad.storyboard in Resources */,
 				5D06C63C17A19EB900673E02 /* dunmore_logo-2.png in Resources */,
+				5DE6C2F117B20B4A00CAC389 /* BSKeyboardControls.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,6 +408,7 @@
 				5DD8A84717A1D5D400669C34 /* CalculationViewController.m in Sources */,
 				5D83192C17A877EE0069F64E /* UnitsButton.m in Sources */,
 				5D353D3717A8D25100EC6AEF /* UnitMenuItem.m in Sources */,
+				5DE6C2F017B20B4A00CAC389 /* BSKeyboardControls.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +465,15 @@
 				5D06C61817A0787700673E02 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		5DE6C2ED17B20B4A00CAC389 /* BSKeyboardControls.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5DE6C2EE17B20B4A00CAC389 /* da */,
+				5DE6C2EF17B20B4A00CAC389 /* en */,
+			);
+			name = BSKeyboardControls.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -14,8 +14,11 @@
 #import "UIViewController+MMDrawerController.h"
 #import "MMDrawerBarButtonItem.h"
 #import <QuartzCore/QuartzCore.h>
+#import "BSKeyboardControls.h"
 
 @interface CalculationViewController ()
+
+@property (nonatomic, strong) BSKeyboardControls *keyboardControls;
 
 @end
 
@@ -120,7 +123,13 @@
     int PADDING = 10;
     
     
-	for (int i=0; i<[self.entryFields count]; i++){
+    
+  
+    NSMutableArray *fields = [[NSMutableArray alloc] init];
+
+    
+    
+	for (int i = 0; i < [self.entryFields count]; i++){
 
             
         UILabel *yourLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 60 * i + 10 + PADDING, 280, 20)];
@@ -132,30 +141,32 @@
         
 
         UITextField *yourTextfield = [[UITextField alloc] initWithFrame:CGRectMake(20, 60 * i + 35 + PADDING, 230, 30)];
+        
         yourTextfield.borderStyle = UITextBorderStyleRoundedRect;
         yourTextfield.keyboardType = UIKeyboardTypeDecimalPad;
         yourTextfield.keyboardAppearance = UIKeyboardAppearanceAlert;
         
         
-
+        
+        /*
         UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(10, 0, 310, 45)];
         
         UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
         
         UIBarButtonItem *toolbarDone = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:yourTextfield action:@selector(resignFirstResponder)];
         
-        toolbar.
-        
+    
         toolbar.items = [NSArray arrayWithObjects:spacer, toolbarDone, nil];
         
-        [yourTextfield setInputAccessoryView:toolbar];
+        */
         
+        //[yourTextfield setInputAccessoryView:toolbar];
         
-        
-        
+        yourTextfield.delegate = self;
         
         [self.view addSubview:yourTextfield];
         
+        [fields addObject:yourTextfield];
 
         
         
@@ -170,25 +181,59 @@
 
         
         
-//        UIButton *yourUnitsButton = [[UIButton alloc] initWithFrame:CGRectMake(240, 80 * i + 30, 40, 40)];
-//        
-//        [self.view addSubview:yourUnitsButton];
-        
+        //  UIButton *yourUnitsButton = [[UIButton alloc] initWithFrame:CGRectMake(240, 80 * i + 30, 40, 40)];
+        //        
+        // [self.view addSubview:yourUnitsButton];
+
         /*
-         
+
         UIMenuController *menuController = [UIMenuController sharedMenuController];
         UIMenuItem *item = [[UIMenuItem alloc] initWithTitle: @"Do Something"
-                                                      action: @selector(doSomething:)];
+                                                  action: @selector(doSomething:)];
         [menuController setMenuItems: [NSArray arrayWithObject: item]];
-        
-         */
+
+        */
         
 	}
     
+    NSArray *fieldsArray = [NSArray arrayWithArray:fields];
     
-
+    [self setKeyboardControls:[[BSKeyboardControls alloc] initWithFields:fieldsArray]];
+    
+    [self.keyboardControls setDelegate:self];
+    
+    self.keyboardControls.barTintColor = [UIColor colorWithRed:0.87f green:0.25f blue:0.17f alpha:1.00f];
     
 }
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    [self.keyboardControls setActiveField:textField];
+}
+
+#pragma mark -
+#pragma mark Text View Delegate
+
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    [self.keyboardControls setActiveField:textView];
+}
+
+
+- (void)keyboardControls:(BSKeyboardControls *)keyboardControls selectedField:(UIView *)field inDirection:(BSKeyboardControlsDirection)direction
+{
+    //UIView *view = keyboardControls.activeField.superview.superview;
+    //[self.tableView scrollRectToVisible:view.frame animated:YES];
+}
+
+- (void)keyboardControlsDonePressed:(BSKeyboardControls *)keyboardControls
+{
+    [keyboardControls.activeField resignFirstResponder];
+}
+
+
+
+
 
 - (void)didReceiveMemoryWarning
 {
